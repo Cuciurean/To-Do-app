@@ -1,0 +1,21 @@
+package Model;
+
+
+public interface EmployeeProc {
+	
+	
+	public void addEmployee(Employee employee) throws IllegalProcedureException;
+
+	public void removePerson(Person person) throws IllegalProcedureException;
+	
+	public void addAccount(Person person, Account account) throws IllegalProcedureException;
+
+	public void removeAccount(Person person, Account account) throws IllegalProcedureException;
+
+	public  void readAccountsData();
+
+	public  Bank writeAccountsData();
+
+	public  void generateStatement();
+
+}

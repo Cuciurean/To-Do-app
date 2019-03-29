@@ -1,0 +1,186 @@
+package Gui;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Model.Employee;
+
+import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import java.awt.Color;
+
+public class EGui extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					EGui frame = new EGui();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	Connection connect1 = null;
+
+	public void Q(String quert3) {
+
+	try {
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		connect1 =DriverManager.getConnection(
+     			"jdbc:mysql://localhost:3306/Social?verifyServerCertificate=false&useSSL=true","root","blaster"); 
+    	Statement pst3= connect1.createStatement();
+    	pst3.executeUpdate(quert3);
+    	JOptionPane.showMessageDialog(null, "Query Executed");
+  
+ 
+	}catch(Exception a){
+		System.out.println(a);
+	
+	}
+	}
+	
+	
+	/**
+	 * Create the frame.
+	 */
+	public EGui() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Social Site");
+		lblNewLabel.setBounds(33, 11, 293, 14);
+		contentPane.add(lblNewLabel);
+		
+
+		JList list_3 = new JList();
+		list_3.setBounds(279, 102, 88, 106);
+		contentPane.add(list_3);
+		
+		JButton btnNewButton = new JButton("Afisare angajati");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				DefaultListModel m = new DefaultListModel();
+				
+				String quert1="select * from Employee EName";
+				try {
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				connect1 =DriverManager.getConnection(
+		     			"jdbc:mysql://localhost:3306/Social?verifyServerCertificate=false&useSSL=true","root","blaster"); 
+		    	PreparedStatement pst1= connect1.prepareStatement(quert1);
+
+		  
+		    	ResultSet rs1 = pst1.executeQuery();
+		    	
+		    	while(rs1.next()) {
+		    		String name = rs1.getString("Ename");
+		    		m.addElement(name);
+		    		
+		    	}
+		    	list_3.setModel(m);
+			}catch(Exception a){
+				System.out.println(a);
+			}
+			
+			}
+			
+		});
+		btnNewButton.setBounds(33, 46, 114, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnAdaugaProict = new JButton("Adauga Proict");
+		btnAdaugaProict.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					
+					Q("insert into Team (TeamName,Members,Project) values('" ")
+				}catch(Exception a){
+					System.out.println(a);
+			}
+			}
+		});
+		btnAdaugaProict.setBounds(33, 99, 178, 23);
+		contentPane.add(btnAdaugaProict);
+		
+		JButton btnNewButton_1 = new JButton("Sterge Proiect");
+		btnNewButton_1.setBounds(33, 178, 178, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnAfisareProiecte = new JButton("Afisare Proiecte");
+		btnAfisareProiecte.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				DefaultListModel m1 = new DefaultListModel();
+				
+				String quert2="select * from Team Project";
+				try {
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				connect1 =DriverManager.getConnection(
+		     			"jdbc:mysql://localhost:3306/Social?verifyServerCertificate=false&useSSL=true","root","blaster"); 
+		    	PreparedStatement pst2= connect1.prepareStatement(quert2);
+
+		  
+		    	ResultSet rs2 = pst2.executeQuery();
+		    	
+		    	while(rs2.next()) {
+		    		String name1 = rs2.getString("Project");
+		    		m1.addElement(name1);
+		    		
+		    	}
+		    	list_3.setModel(m1);
+			}catch(Exception a){
+				System.out.println(a);
+			}
+			
+
+			}
+		});
+		btnAfisareProiecte.setBounds(206, 46, 120, 23);
+		contentPane.add(btnAfisareProiecte);
+		
+	
+	
+		
+	
+		
+		
+	}
+}
+	
+

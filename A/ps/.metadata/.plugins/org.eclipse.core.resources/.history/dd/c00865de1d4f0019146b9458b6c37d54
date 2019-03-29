@@ -1,0 +1,23 @@
+package Model;
+import Social.IllegalProcedureException;
+
+
+
+public interface EmployeeProc {
+	
+	
+	public void addEmployee(Employee employee) throws IllegalProcedureException;
+
+	public void removePerson(Employee employee) throws IllegalProcedureException;
+	
+	public void addAccount( Team team) throws IllegalProcedureException;
+
+	public void removeAccount( Team team) throws IllegalProcedureException;
+
+	public  void readAccountsData();
+
+	public  Bank writeAccountsData();
+
+	public  void generateStatement();
+
+}

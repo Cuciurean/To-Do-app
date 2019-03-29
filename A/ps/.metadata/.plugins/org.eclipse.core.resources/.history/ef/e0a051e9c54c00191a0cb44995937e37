@@ -1,0 +1,65 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import java.awt.EventQueue;
+
+public class Interfata {
+
+	
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Social window = new Social();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Social() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(240, 240, 240));
+		frame.getContentPane().setForeground(Color.BLACK);
+		frame.setBounds(100, 100, 677, 356);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton btnNewButton = new JButton("Employee");
+		btnNewButton.setForeground(Color.BLUE);
+		btnNewButton.setBackground(Color.BLUE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		frame.getContentPane().add(btnNewButton, BorderLayout.WEST);
+		
+		JButton btnNewButton_1 = new JButton("Teams");
+		btnNewButton_1.setBackground(Color.BLUE);
+		btnNewButton_1.setForeground(Color.BLUE);
+		frame.getContentPane().add(btnNewButton_1, BorderLayout.NORTH);
+	}
+
+}

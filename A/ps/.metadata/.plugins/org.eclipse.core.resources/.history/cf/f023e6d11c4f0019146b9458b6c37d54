@@ -1,0 +1,7 @@
+package Model;
+
+import utilities.IllegalProcedureException;
+
+public class EmployeeProc {
+
+}

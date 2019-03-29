@@ -1,0 +1,7 @@
+package Model;
+import java.sql.*; 
+import javax.swing.*;
+
+public class SqlConnection {
+
+}

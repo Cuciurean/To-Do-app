@@ -1,0 +1,17 @@
+package Social;
+import java.util.ArrayList;
+
+import Model.Employee;
+
+public class Operations  {
+
+	
+	
+		public ArrayList<Employee> EmployeeList()
+		{
+			
+			ArrayList<Employee> Employee = new ArrayList<>();
+			return null;
+			
+		}
+}

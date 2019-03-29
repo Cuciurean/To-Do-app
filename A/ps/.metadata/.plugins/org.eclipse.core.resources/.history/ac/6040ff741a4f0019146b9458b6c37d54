@@ -1,0 +1,102 @@
+package Gui;
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.concurrent.ThreadFactory;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+
+public class Interface extends JFrame{
+
+	private JScrollPane scrollPersons;
+	private JTable tablePersons;
+	public DefaultTableModel modelPersons;
+	
+	private JScrollPane scrollAccounts;
+	private JTable tableAccounts;
+	private DefaultTableModel modelAccounts;
+	
+	private JPanel panelEmployee;
+	
+	private JPanel panelAccounts;
+	private JPanel panelPersonsOps;
+	private JPanel panelAccountsOps;
+	private JPanel panelPerson;
+	private JPanel panelAccount;
+	
+	private JTextField tfSsid;
+	private JTextField tfLastName;
+	private JTextField tfFirstName;
+	private JTextField tfPhoneNo;
+	private JTextField tfBalance;
+	
+	
+	private JButton btnAddPerson;
+	private JButton btnRemovePerson;
+	private JButton btnAddAccount;
+	private JButton btnRemoveAccount;
+	private JButton btnWithdraw;
+	private JButton btnDeposit;
+	private JButton btnStatement;
+	
+	private JRadioButton rbSpending;
+	private JRadioButton rbSaving;
+	
+	private JTextField tfAmount;
+	
+	
+	GridBagConstraints gbc;
+	public  Interface(){
+		
+		super("Social");
+		this.setSize(900,700);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new GridBagLayout());
+		gbc = new GridBagConstraints();
+		
+		
+		
+		panelEmployee = new JPanel();
+		createPanelEmployee(panelEmployee);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.weightx = 0.5;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		this.add(panelEmployee, gbc);
+		
+		
+		
+		
+		this.setVisible(true);
+	}
+	
+public  void createPanelEmployee(JPanel panelEmployee){
+		
+		Object[] rowCount = new Object[]{"SSID", "Last name", "First name", "PhoneNo"};
+		modelEmployee = new DefaultTableModel(null, rowCount);
+		tableEmployee = new JTable(modelPersons);
+		scrollEmployee = new JScrollPane(tablePersons);
+		scrollEmployee.setPreferredSize(new Dimension(400, 300));
+		panelEmployee.add(scrollPersons);
+	}
+	
+}

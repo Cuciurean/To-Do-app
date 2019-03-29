@@ -1,0 +1,12 @@
+package Social;
+import Model.Employee;
+
+public class Operations  {
+
+	
+	
+		public ArrayList<Employee> EmployeeList()
+		{
+			
+		}
+}

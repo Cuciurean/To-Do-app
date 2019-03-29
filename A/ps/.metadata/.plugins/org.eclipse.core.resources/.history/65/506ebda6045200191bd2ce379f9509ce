@@ -1,0 +1,271 @@
+package Gui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.UIManager;
+import javax.swing.text.Document;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+import javax.xml.stream.events.StartDocument;
+
+public class Console {
+	
+	public static void main(String[] args)
+	{
+		
+		new Console();
+	}
+	
+	
+	Connection connect = null;
+	
+	public JFrame frame;
+	public JTextPane console;
+	public JTextField input;
+	public JScrollPane scrollpane;
+	
+	
+	
+	public StyledDocument document;
+	boolean trace = false;
+	
+	
+	public Console()
+	{
+		
+		try
+		{
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		}catch(Exception ex)
+		{
+			
+		}
+		
+		frame = new JFrame();
+		frame.setTitle("Console");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		
+		console = new JTextPane();
+		console.setEditable(false);
+		console.setOpaque(false);
+		
+		
+		 document = console.getStyledDocument();
+		 
+		input = new JTextField();
+		input.setEditable(true);
+		input.setForeground(Color.white);
+		input.setCaretColor(Color.WHITE);
+		input.setOpaque(false);
+		
+		
+		input.addActionListener(new ActionListener ()
+		{
+			
+
+			public void actionPerformed(ActionEvent e)
+			{
+				String text = input.getText();
+				if(text.length()> 1)
+				{
+					
+					//print(text +"\n", false);
+					printline(text, false);
+					doCommand(text);
+					scrollBottom();
+					
+					input.selectAll();
+				}
+			}
+		});
+		
+		
+		input.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				DefaultListModel m1 = new DefaultListModel();
+				
+				String quert2="select * from Team Project";
+				try {
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				connect =DriverManager.getConnection(
+		     			"jdbc:mysql://localhost:3306/Social?verifyServerCertificate=false&useSSL=true","root","blaster"); 
+		    	PreparedStatement pst2= connect.prepareStatement(quert2);
+
+		  
+		    	ResultSet rs2 = pst2.executeQuery();
+		    	
+		    	if(quert2.length()> 1)
+				{
+					
+					//print(text +"\n", false);
+					printline(quert2, false);
+					doCommand(quert2);
+					scrollBottom();
+					
+					input.selectAll();
+				}
+			}catch(Exception a){
+				System.out.println(a);
+			}
+			
+
+			}
+		});
+		
+		input.addKeyListener(new KeyListener(){
+			
+			
+			public void keyPressed(KeyEvent e)
+			{
+				
+			}
+			
+			public void keyReleased(KeyEvent e)
+			{
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				
+			}
+			
+		});
+		
+		
+		scrollpane = new JScrollPane(console);
+		scrollpane.setBorder(null);
+		scrollpane.setOpaque(false);
+		scrollpane.getViewport().setOpaque(false);
+		
+		
+		frame.add(input, BorderLayout.SOUTH);
+		frame.add(scrollpane, BorderLayout.CENTER);
+		
+		
+		frame.getContentPane().setBackground(new Color(50, 50 , 50));
+		
+		frame.setSize(660, 350);
+		frame.setLocationRelativeTo(null);
+		
+		frame.setResizable(false);
+		frame.setVisible(true);
+		
+	}
+	
+	
+	public void doCommand(String s)
+	{
+		final String[] commands = s.split(" ");
+		 try
+		 {
+			
+			 
+		 }catch(Exception ex) {
+			 printline("Error ->" + ex.getMessage(), trace, new Color(255,155,155) );
+		 }
+	}
+	
+	public void scrollTop()
+	{
+		console.setCaretPosition(0);
+	}
+	
+	public void scrollBottom()
+	{
+		console.setCaretPosition(console.getDocument().getLength());
+	}
+	
+	
+	public void print(String s, boolean trace)
+	{
+		print(s,trace,new Color(255,255,255));
+	}
+	
+	
+	public void print(String s, boolean trace, Color c)
+	{
+		Style style = console.addStyle("Style", null);
+		StyleConstants.setForeground(style, c);
+		
+		if (trace)
+		{
+			Throwable t = Throwable();
+			StackTraceElement[] elements = t.getStackTrace();
+			String caller = elements[0].getClassName();
+			
+			s = caller + " -> " + s;
+		}
+		
+		try
+		{
+			document.insertString(document.getLength(), s, style);
+		}
+		catch(Exception ex) {}
+		
+		
+	}
+
+	public void printline(String s , boolean trace)
+	{
+		printline(s, trace, new Color(255,255,255));
+	}
+	
+	
+	public void printline(String s , boolean trace,Color c)
+	{
+		print(s + "\n",trace, c);
+	}
+	
+	
+	public void clear()
+	{
+		try
+		{
+			
+			document.remove(0, document.getLength());
+			
+		}catch(Exception ex)
+		{
+			
+		}
+	}
+	
+	
+
+	private Throwable Throwable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+}

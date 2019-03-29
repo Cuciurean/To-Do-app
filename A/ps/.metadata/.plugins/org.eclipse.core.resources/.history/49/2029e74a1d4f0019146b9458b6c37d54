@@ -1,0 +1,7 @@
+package Model;
+
+public class IllegalProcedureException {
+	public  IllegalProcedureException(String message){
+		super(message);
+	}
+}
