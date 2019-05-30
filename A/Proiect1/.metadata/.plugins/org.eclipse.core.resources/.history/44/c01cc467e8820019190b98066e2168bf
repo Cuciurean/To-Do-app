@@ -1,0 +1,23 @@
+package net.codejava.Controller;
+
+public class Weather {
+	
+	@JsonProperty("location")
+	@JsonAlias("place")
+	private String location;
+	@JsonProperty("temp")
+	@JsonAlias("temperature")
+	private int temp;
+	 
+	@JsonProperty("outlook")
+	@JsonAlias("weather")
+	private String outlook;
+	    
+	    
+	    
+	    
+	    
+	
+	
+
+}

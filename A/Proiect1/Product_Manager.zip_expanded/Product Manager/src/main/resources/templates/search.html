@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Search</title>
+</head>
+<body bgcolor="pink">
+
+<div align="center">
+	<h1>Search</h1>
+	<table border ="3" cellpadding="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Hours</th>
+				<th>To Do Today</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="keyword: ${result}">
+				<td th:text="${keyword.id}">Id</td>
+				<td th:text="${keyword.hour}">Hours</td>
+				<td th:text="${keyword.todo}">To Do Today</td>	
+			</tr>
+		
+		</tbody>	
+	</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+package net.codejava.Controller;
+
+@RestController
+public class WeatherController {
+    private final WeatherService weatherService;
+
+    @Autowired
+    public WeatherController(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
+
+    @RequestMapping(value = "/weather")
+    public Weather currentWeather() throws IOException, ParseException, JSONException, org.json.simple.parser.ParseException {
+    	return weatherService.getCurrentWeather("Wroclaw");
+    }
+}

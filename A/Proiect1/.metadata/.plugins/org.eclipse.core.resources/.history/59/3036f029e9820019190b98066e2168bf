@@ -1,0 +1,16 @@
+package net.codejava.Controller;
+
+import org.junit.Test;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Weather {
+	
+
+	    
+	    
+	    
+	
+
+}

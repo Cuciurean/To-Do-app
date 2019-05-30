@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Project</title>
+
+
+<meta charset="UTF-8"/>
+<script src="libs/angular-1.6.3/angular.min.js"></script>
+    <script src="libs/angular-1.6.3/angular-route.min.js"></script>
+    <script src="libs/angular-1.6.3/angular-resource.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/js/controllers.js"></script>
+    <script src="app/js/directives.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script> 
+	<script src="libs/bootstrap-4.0.0/js/bootstrap.min.js"></script> 
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" />
+	<link href="libs/bootstrap-4.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="app/css/style.css">
+	<link rel="stylesheet" href="app/css/weather-icons.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">	
+
+
+
+</head>
+<body bgcolor="pink">
+
+<div align="center">
+	<h1>Project</h1>
+	<form method="get" action="search">
+		 <input type="text" name="keyword" /> &nbsp;
+        <input type="submit" value="Search" />
+	</form>
+	<h1>Today</h1>
+	<a href="new">Add new ToDo</a>
+	
+	<table border ="3" cellpadding="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Hours</th>
+				<th>To Do Today</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="t: ${listT}">
+				<td th:text="${t.id}">Id</td>
+				<td th:text="${t.hour}">Hours</td>
+				<td th:text="${t.todo}">To Do Today</td>	
+				<td>
+					<a th:href="@{'/edit/' + ${t.id}}">Edit</a>"
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete/' + ${t.id}}">Delete</a>"
+				</td>
+			</tr>
+		
+		</tbody>	
+	</table>
+	
+	
+	
+	
+	<h1>Upcoming</h1>
+	<a href="new1">Add new Plans</a>
+	<table border ="3" cellpadding="3">
+		<thead>
+			<tr>
+				<th>IdU</th>
+				<th>Date</th>
+				<th>Plans</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="u: ${listU}">
+				<td th:text="${u.idu}">IdU</td>
+				<td th:text="${u.dataa}">Date</td>
+				<td th:text="${u.plans}">Plans</td>	
+				<td>
+					<a th:href="@{'/edit1/' + ${u.idu}}">Edit</a>"
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete1/' + ${u.idu}}">Delete</a>"
+				</td>
+			</tr>
+		
+		</tbody>	
+	</table>
+</div>
+<div class="container" ng-view></div>
+
+
+</body>
+</html>

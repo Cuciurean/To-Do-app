@@ -1,0 +1,24 @@
+2019-05-30 21:47:52,302 [Worker-3: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-05-30 21:48:40,218 [Worker-9: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.codejava:Product Manager:0.0.1-SNAPSHOT @ C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\pom.xml.
+2019-05-30 21:48:42,277 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:42,284 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-05-30 21:48:42,304 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:48:42,309 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:42,309 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\src\test\resources
+2019-05-30 21:48:44,445 [Worker-16: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.codejava:Product Manager:0.0.1-SNAPSHOT @ C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\pom.xml.
+2019-05-30 21:48:45,327 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:45,335 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-05-30 21:48:45,357 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:48:45,363 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:45,364 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\src\test\resources
+2019-05-30 21:48:47,453 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:47,454 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:48:47,454 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:48:47,464 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:48:47,464 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\src\test\resources
+2019-05-30 21:51:03,748 [Worker-13: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.codejava:Product_Manager:0.0.1-SNAPSHOT @ C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\pom.xml.
+2019-05-30 21:51:04,847 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:51:04,856 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:51:04,859 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-05-30 21:51:04,867 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-05-30 21:51:04,870 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Cuci\Desktop\Proiect1\Product_Manager.zip_expanded\Product_Manager.zip_expanded\Product Manager\src\test\resources
