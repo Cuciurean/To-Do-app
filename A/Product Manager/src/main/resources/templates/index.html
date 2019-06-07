@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Project</title>
+
+
+<meta charset="UTF-8"/>
+
+
+</head>
+<body bgcolor="pink">
+
+<div align="center">
+	<h1>Project</h1>
+	<form method="get" action="search">
+		 <input type="text" name="keyword" /> &nbsp;
+        <input type="submit" value="Search" />
+	</form>
+	<h1>Today</h1>
+	<a href="new">Add new ToDo</a>
+	
+	<table border ="3" cellpadding="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Hours</th>
+				<th>To Do Today</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="t: ${listT}">
+				<td th:text="${t.id}">Id</td>
+				<td th:text="${t.hour}">Hours</td>
+				<td th:text="${t.todo}">To Do Today</td>	
+				<td>
+					<a th:href="@{'/edit/' + ${t.id}}">Edit</a>"
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete/' + ${t.id}}">Delete</a>"
+				</td>
+			</tr>
+		
+		</tbody>	
+	</table>
+	
+	
+	
+	
+	<h1>Upcoming</h1>
+	<a href="new1">Add new Plans</a>
+	<table border ="3" cellpadding="3">
+		<thead>
+			<tr>
+				<th>IdU</th>
+				<th>Date</th>
+				<th>Plans</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="u: ${listU}">
+				<td th:text="${u.idu}">IdU</td>
+				<td th:text="${u.dataa}">Date</td>
+				<td th:text="${u.plans}">Plans</td>	
+				<td>
+					<a th:href="@{'/edit1/' + ${u.idu}}">Edit</a>"
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete1/' + ${u.idu}}">Delete</a>"
+				</td>
+			</tr>
+		
+		</tbody>	
+	</table>
+	
+	
+	<body onload="updateFiles();">
+        <form name="upload" enctype="multipart/form-data" action="/" method="POST">
+            <p>
+                <div><input id="fileInput" type="file" name="uploadedFiles" onchange="updateFiles();" multiple></div>                
+                <div style="padding-top:20px" id="selectedFiles"></div>
+            </p>
+            <p>
+                <input type="submit" value="Upload files">
+            </p>
+        </form>
+        <div>
+            <div>Uploaded files:</div>
+            <#list files as file>
+            <div>${file.getName()}  
+            </#list> 
+            </div>
+         
+        </div>
+        <script>
+            function updateFiles() {
+                var nBytes = 0,
+                	fileInfo = '',
+                        oFiles = document.getElementById("fileInput").files,
+                        nFiles = oFiles.length;
+                for (var nFileId = 0; nFileId < nFiles; nFileId++) {
+                	fileInfo += 'Filename=';
+                	fileInfo += oFiles[nFileId].name;
+                	fileInfo +=', size=';
+                    fileInfo += oFiles[nFileId].size;
+                    fileInfo +=' bytes';
+                    fileInfo +='</br>';
+                }
+             
+                document.getElementById("selectedFiles").innerHTML = fileInfo;
+                
+            }
+        </script>
+    </body>
+	
+	
+	
+</div>
+	
+
+
+</body>
+</html>
