@@ -1,2 +1,2 @@
-# Cuciurean Catalin - To-Do App!
+# To-Do App!
 
